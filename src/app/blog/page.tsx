@@ -23,25 +23,11 @@ const BlogCard: React.FC<BlogPost> = ({ image, category, title, excerpt, link })
 const BlogPage: React.FC = () => {
   const blogPosts: BlogPost[] = [
     {
-      image: "/OpenCharacterCard.png",
+      image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlOR1NnGW-QpBq02chXSy5b7xo3Y0FWCuSwA53-rPohpxZ1ptqfeFldN4CrtGLp9reaIcabjcVwFNHFYBaRMtBADpT5tCqzuJA6k-tfI8K9lvVlzpUXyGd2tllXE8ITNL-uGj1Lpyl1y4WtYsZrWryPpDNBwPcA12ghkHuvhW14x943_QQygaUTGQI-mBD/w945-h600-p-k-no-nu/20250806_163637.png",
       category: "Announcements",
       title: "Uncensored Alternative to Character.AI",
-      excerpt: "Discover OpenCharacter: The open-source, uncensored platform for AI character creation and interaction. Learn how we're pushing the boundaries of AI conversation technology.",
+      excerpt: "Discover about Chara",
       link: "/blog/uncensored-alternative-to-characterai"
-    },
-    {
-      image: "https://opencharacter.org/c.ai-preview.png",
-      category: "Future",
-      title: "Future of OpenCharacter",
-      excerpt: "Explore the future of OpenCharacter, an open-source, uncensored platform for AI character creation.",
-      link: "/blog/future-of-project"
-    },
-    {
-      image: "/paint.webp",
-      category: "Why us over CharacterAI?",
-      title: "Why us?",
-      excerpt: "OpenCharacter vs CharacterAI",
-      link: "/blog/characterai-alternative-opencharacter"
     },
   ];
 
@@ -52,9 +38,9 @@ const BlogPage: React.FC = () => {
           <img src="/blog-background.webp" alt="Background" className="w-full h-full object-cover rounded-xl" />
         </div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-wrap text-2xl md:text-5xl font-bold mb-4 text-black">OpenCharacter.org</h1>
+          <h1 className="text-wrap text-2xl md:text-5xl font-bold mb-4 text-black">Chara Research Corp</h1>
           <p className="text-sm text-black max-w-2xl mx-auto">
-            The open source, uncensored, alternative to CharacterAI
+            Where character comes to life
           </p>
         </div>
       </div>
