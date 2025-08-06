@@ -6,7 +6,7 @@ export default function TermsOfService() {
     return (
         <div className="w-full max-w-4xl mx-auto px-4 py-8 text-white mb-12">
             <h1 className="text-2xl font-bold mb-4">Terms of Service for Chara</h1>
-            <p className="mb-4">Effective Date: 28/10/2024</p>
+            <p className="mb-4">Effective Date: 6/08/2025</p>
 
             <p className="mb-4">Welcome to Chara, a platform operated by Chara Research Corp. By using our services, you agree to these Terms of Service. Please read them carefully.</p>
 
