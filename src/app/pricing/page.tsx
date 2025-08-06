@@ -17,18 +17,10 @@ export default function PlansPage() {
         <Showcase
             className={""}
             title="Available Models"
-            description={`OpenCharacter provides access to ${Object.keys(models).length} top-tier AI models, along with the flexibility to proxy any model through OpenAI API-compatible endpoints.`}
+            description={`Chara provides access to ${Object.keys(models).length} top-tier AI models, along with the flexibility to proxy any model through OpenAI API-compatible endpoints.`}
             videoUrl="https://random-stuff-everythingcompany.s3.us-west-1.amazonaws.com/model-showcase.mp4"
             videoClassName="h-[95%] absolute bottom-0 left-0 right-0 mx-auto rounded-t-xl"
-        />
-        <Showcase
-            className={""}
-            backgroundImage="/gradient.jpeg"
-            description="OpenCharacter Pro includes a powerful Creator Dashboard, allowing you to manage your characters and track how other users interact with them."
-            title="Creator Dashboard"
-            videoClassName="w-[95%] md:w-[90%] absolute bottom-0 left-0 right-0 mx-auto rounded-t-xl"
-            videoUrl="https://random-stuff-everythingcompany.s3.us-west-1.amazonaws.com/dashboard-showcase.mp4"
-        />
+        
         <ModelComparison />
       </div>
     </div>
