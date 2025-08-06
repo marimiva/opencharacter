@@ -3,51 +3,64 @@ import Image from 'next/image';
 export const runtime = "edge";
 
 export default function AboutPage() {
-    return (
-        <div className="max-w-3xl mx-auto px-4 py-8 text-white mb-12">
-            <Image
-                src="/OpenCharacterCard.png"
-                alt="OpenCharacter.org"
-                width={800}
-                height={400}
-                className="w-full h-auto mb-8 rounded-lg shadow-lg"
-            />
-            <h1 className="text-4xl font-bold mb-6 text-center">OpenCharacter.org</h1>
-            <h2 className="text-2xl font-semibold mb-4 text-center">A project to recreate the old c.ai site and open-source it</h2>
-            
-            <div className="space-y-6">
-                <p className="italic text-gray-300 text-center">Started: September 13, 2024 | Last Updated: October 4, 2024</p>
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-8 text-white mb-12">
+      <h1 className="text-4xl font-bold mb-6 text-center">About Chara</h1>
+      <h2 className="text-2xl font-semibold mb-4 text-center">An uncensored alternative to c.ai, built for the community</h2>
 
-                <p>I created OpenCharacter because I saw how upset people were at the discontinuation of the old c.ai site. Users found the UI of the new site unfamiliar and, most importantly, noticed a dramatic increase in the level of filters and censorship.</p>
+      <div className="space-y-6">
+        <p className="italic text-gray-300 text-center">Started: August 3, 2025 | Last Updated: August 6, 2025</p>
 
-                <p>So, I decided to recreate the old site with the same UI and feature set but use open-source models instead by leveraging OpenRouter. This approach bypasses the filters and censorship. By virtue of being open-source, it will make it easier for users to fully customize their characters, scenarios, roleplays, rooms, etc. (hook it up to LLM, text-to-image, text-to-video models, etc.).</p>
+        <p>
+          Chara is a platform created in response to growing dissatisfaction with Character.AI’s increasing censorship, limited control, and long queues. Our goal is simple: bring back the freedom, flexibility, and fun of the early days — without the restrictions.
+        </p>
 
-                <p>Currently, OpenCharacter supports public and private character creations, regenerations, edit and delete message features, and Persona capabilities. It&apos;s been just three weeks since I wrote my first line of code.</p>
+        <p>
+          Chara is inspired by the original version of c.ai that users loved: open-ended, fast, and user-first. With Chara, you can create uncensored characters, roleplay without filters, and have full control over your experience.
+        </p>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-4">Why This Will Work (I Think)</h2>
+        <p>
+          While we are not open source, our goal is transparency and freedom — and we proudly build on top of existing community efforts. Chara makes use of foundational ideas and code contributions from the amazing open-source project <a href="https://opencharacter.org" className="underline text-blue-400" target="_blank">OpenCharacter.org</a>. We are incredibly grateful for their work in making customizable AI character tools available to everyone.
+        </p>
 
-                <p>LLMs are becoming increasingly powerful and affordable! Even c.ai is moving away from developing foundational models and using fine-tuned versions of pre-trained models.</p>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">Why Chara Exists</h2>
 
-                <blockquote className="border-l-4 border-gray-500 pl-4 py-2 italic my-4">
-                    &quot;Given these changes, we see an advantage in making greater use of third-party LLMs alongside our own.&quot;
-                    <footer className="text-sm mt-2">- Noam Shazeer, CharacterAI founder</footer>
-                </blockquote>
+        <p>
+          Most character chat platforms today impose strict filters, slow you down with wait times, or gate core features behind a paywall. Chara is different. It’s designed to be <strong>uncensored</strong>, <strong>free forever</strong>, and <strong>extremely customizable</strong>.
+        </p>
 
-                <p>We&apos;re no longer in 2022 where there was only one provider of LLMs. We&apos;re now in a thriving ecosystem of closed and open-source models that are highly competitive and commoditized, with many players offering different models.</p>
+        <p>
+          We support public and private characters, message editing, regeneration, personas, and more. You can talk to characters, create stories, and explore creative possibilities without limits.
+        </p>
 
-                <p>Given this context, it allows someone like me to build something like this in a weekend and achieve significant usage (people using it for hours) and user growth, with minimal marketing!</p>
-                
-                <p>The advantage of large companies with big datasets will only diminish as the costs of LLM inference and training reduce dramatically while quality improves.</p>
+        <p>
+          Large language models (LLMs) are becoming more accessible, and with tools like OpenRouter, we can tap into multiple powerful models under one system — giving you the flexibility c.ai doesn’t offer.
+        </p>
 
-                <p>Now is the time to &quot;carpe diem!&quot; Not just seize the day, but seize the entire market!</p>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">The Future of Chara</h2>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-4">Future Vision</h2>
+        <p>
+          Chara isn’t meant to just mimic c.ai — it’s a launchpad. We’re working on future integrations with voice models, text-to-image, image-to-text, and persona chaining so that you can create entire worlds, stories, and visual experiences using characters you define.
+        </p>
 
-                <p>I don&apos;t want OpenCharacter to be just a 1:1 copy of the old c.ai site. I see this initial version as a way to attract users. Ideally, I want to create a very open platform where people can access any LLM, voice, text-to-image, and image-to-text models, allowing them to fully customize their characters, personas, rooms, scenarios, etc., to their heart&apos;s content.</p>
+        <p>
+          Want a character that talks like Shakespeare and draws like Hokusai? You’ll be able to do that — all within the same platform. We're building a modular system that lets you mix and match models to shape your experience exactly how you want.
+        </p>
 
-                <p>Want to create a painter character that paints in the style of Vincent van Gogh but answers in the style of Bob Ross? You can do that. Technically, it&apos;s not hard. We just need to allow users to upload a text-to-image LoRA based on Vincent Van Gogh and link it to an OpenAI API-compatible LLM inference trained on Bob Ross, or use a simple system prompt to respond to messages like Bob Ross.</p>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">Credits & Acknowledgements</h2>
 
-            </div>
-        </div>
-    );
+        <p>
+          Parts of Chara’s initial codebase were adapted from the open-source project <a href="https://opencharacter.org" className="underline text-blue-400" target="_blank">OpenCharacter.org</a>. We sincerely thank the contributors behind it for their openness, effort, and support of the AI developer community.
+        </p>
+
+        <p>
+          We also thank the broader open-source ecosystem for making LLMs, hosting solutions, and development tools freely accessible — without which Chara would not exist.
+        </p>
+
+        <p className="mt-6 font-semibold text-center">
+          Learn more or start chatting at <a href="https://chara-research.com" className="underline">chara-research.com</a>
+        </p>
+      </div>
+    </div>
+  );
 }
