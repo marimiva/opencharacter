@@ -5,70 +5,92 @@ export const runtime = "edge";
 export default function PrivacyPolicy() {
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-8 text-white mb-12">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy for OpenCharacter</h1>
-      <p className="mb-4"><strong>Effective Date: 04/10/2024</strong></p>
+      <h1 className="text-3xl font-bold mb-6">Privacy Policy for Chara</h1>
+      <p className="mb-4"><strong>Effective Date: 06/8/2025</strong></p>
 
       <p className="mb-6">
-        Welcome to OpenCharacter, we&apos;re creating the old c.ai site and open-sourcing it. We respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy outlines how we collect, use, and safeguard your information.
+        Welcome to Chara, a platform operated by Chara Research Corp. Chara is a closed-source AI character platform. This Privacy Policy describes how we collect, use, store, and disclose your information when you use our services through https://chara-research.com. By using our services, you agree to the practices described below.
       </p>
 
       {[
         {
           title: "1. Information We Collect",
           content: [
-            "<strong>Personal Information:</strong> We may collect personal information, such as your username and email address, when you register on our site.",
-            "<strong>Usage Data:</strong> We automatically collect information about your interactions with the site, including IP address, browser type, and pages visited.",
-            "<strong>Cookies and Tracking Technologies:</strong> We use cookies and similar technologies to enhance your experience and gather analytical data."
+            "<strong>Personal Information:</strong> When you create an account or contact us, we may collect personal details such as your username, email address, and any other information you choose to provide.",
+            "<strong>Usage Data:</strong> We collect data such as your IP address, browser type, device information, pages visited, time spent, and interaction with AI characters.",
+            "<strong>Cookies and Tracking:</strong> We use cookies and similar tracking technologies to remember preferences, track usage, and improve performance."
           ]
         },
         {
           title: "2. How We Use Your Information",
           content: [
-            "To provide and maintain our services",
-            "To improve, personalize, and expand our services",
-            "To communicate with you for updates, marketing, or promotional content",
-            "To monitor and analyze usage patterns and trends"
+            "To provide and maintain our platform and services",
+            "To personalize your experience and offer relevant content",
+            "To communicate with you about service updates or promotions",
+            "To analyze platform usage and improve functionality",
+            "To monitor misuse or violations of our Terms of Service"
           ]
         },
         {
-          title: "3. Information Sharing and Disclosure",
+          title: "3. Chat and AI Interactions",
           content: [
-            "We do not sell your personal information to third parties. We may share information with:",
-            "Service providers involved in operating our site",
-            "Legal authorities if required by law",
-            "Third parties in the event of a merger, acquisition, or sale of assets"
+            "Your conversations with AI characters may be stored and used for quality improvement, moderation, safety checks, and product development.",
+            "These conversations are not shared or sold to advertisers or external parties.",
+            "Do not share sensitive personal information during AI chats, as these are processed by automated systems."
           ]
         },
         {
-          title: "4. Data Security",
+          title: "4. Information Sharing and Disclosure",
           content: [
-            "We implement appropriate security measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure."
+            "We do not sell your personal information. We may share data in the following limited scenarios:",
+            "With service providers under confidentiality agreements to support the platform",
+            "To comply with legal obligations or enforce our rights",
+            "In the event of a business transfer such as a merger or acquisition"
           ]
         },
         {
-          title: "5. Your Rights and Choices",
+          title: "5. Data Retention",
           content: [
-            "You can access and update your personal information through your account settings.",
-            "You have the right to request the deletion of your personal data.",
-            "You can opt out of receiving marketing communications from us."
+            "We retain your data for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required by law.",
+            "You may request deletion of your personal data at any time by contacting us."
           ]
         },
         {
-          title: "6. Third-Party Services",
+          title: "6. Security",
           content: [
-            "Our website may contain links to third-party sites. We are not responsible for the privacy practices of these sites and encourage you to read their privacy policies."
+            "We implement appropriate technical and organizational measures to protect your data. However, no system is fully secure and we cannot guarantee absolute security."
           ]
         },
         {
-          title: "7. Changes to This Privacy Policy",
+          title: "7. Your Rights and Choices",
           content: [
-            "We may update our Privacy Policy from time to time. Any changes will be posted on this page, and we will notify you via email or a prominent notice on our site."
+            "You may access, correct, or delete your account information at any time through your account settings.",
+            "You may opt out of marketing emails via the unsubscribe link or contact us directly.",
+            "Under applicable laws, you may have additional rights such as data portability or objection to processing."
           ]
         },
         {
-          title: "8. Contact Us",
+          title: "8. International Users",
           content: [
-            "If you have any questions or concerns regarding this Privacy Policy, please contact us at minh@everythingcompany.co"
+            "Chara is operated from the United States (or applicable region of incorporation). If you are accessing the service from outside this region, your data may be transferred and processed in countries with different data protection laws."
+          ]
+        },
+        {
+          title: "9. Children's Privacy",
+          content: [
+            "You must be at least 13 years old to use Chara. We do not knowingly collect personal information from children under 13. If we become aware of such data, we will delete it promptly."
+          ]
+        },
+        {
+          title: "10. Changes to This Privacy Policy",
+          content: [
+            "We may update this Privacy Policy at any time. When we do, we will update the effective date and may notify users by email or through the platform."
+          ]
+        },
+        {
+          title: "11. Contact Us",
+          content: [
+            "If you have any questions or concerns about this Privacy Policy or your personal data, please contact us at <a href='mailto:privacy@chara-research.com' class='underline'>privacy@chara-research.com</a>."
           ]
         }
       ].map((section, index) => (
