@@ -32,7 +32,7 @@ export default function ReferralPage() {
           <div className="text-center w-full">
             <h1 className="text-4xl font-bold tracking-tight text-center">Referral Program</h1>
             <p className="text-lg text-muted-foreground mt-2 text-center">
-              Share OpenCharacter and earn 20% lifetime commission on every Pro subscription.
+              Share Chara and earn 20% lifetime commission on every Pro subscription.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export default function ReferralPage() {
           {/* Terms and Conditions */}
           <div className="text-sm text-muted-foreground text-center">
             <p>
-              By participating in the OpenCharacter Referral Program, you agree to our{" "}
+              By participating in the Chara Referral Program, you agree to our{" "}
               <a href="/terms-of-service" className="text-blue-400 hover:underline">Terms of Service</a>.
             </p>
           </div>
