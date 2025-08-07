@@ -8,9 +8,8 @@ import { searchCharacters } from "./actions";
 import NewSidebar from "@/components/new-sidebar";
 import IconStyleInitializer from "@/components/icon-style-onmount";
 import AuthProvider from "@/components/auth-provider";
-import { ConditionalAdsense } from "@/components/conditional-adsense";
-import { auth } from "@/server/auth";
 import { PostHogProvider } from "@/components/PostHogProvider";
+import { auth } from "@/server/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +46,6 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const session = await auth();
-  const isPro = await isUserPro(session?.user?.id);
 
   async function search(query: string) {
     'use server';
