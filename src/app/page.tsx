@@ -1,15 +1,13 @@
 import { db } from "@/server/db";
 import { desc, eq, asc, sql, and, or, SQL } from "drizzle-orm";
-import { characters, users, subscriptions } from "@/server/db/schema";
+import { characters, users } from "@/server/db/schema";
 import AICharacterGrid from "@/components/ai-character-grid";
 import Link from "next/link";
 import { Suspense } from "react";
-import { Check } from "lucide-react";
-import { getConversations } from "./actions";
 import { Card, CardContent } from "@/components/ui/card";
-import { CTACard, Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/footer";
 import { auth } from "@/server/auth";
+import { getConversations } from "./actions";
 
 export const runtime = "edge";
 const ITEMS_PER_PAGE = 36;
@@ -20,7 +18,7 @@ async function getTotalPublicCharacters() {
     .from(characters)
     .where(eq(characters.visibility, "public"))
     .execute();
-  
+
   return Number(result[0]?.count || 0);
 }
 
@@ -31,23 +29,15 @@ async function getPaginatedCharacters(
 ) {
   const offset = (page - 1) * ITEMS_PER_PAGE;
 
-  // Initialize base condition
   let conditions: SQL<unknown>[] = [eq(characters.visibility, "public")];
 
-  // Add tags filter if present
   if (tags.length > 0) {
-    // Create tag conditions using OR logic
-    const tagConditions: SQL<unknown>[] = tags.map(tag => 
+    const tagConditions: SQL<unknown>[] = tags.map(tag =>
       sql`${characters.tags} LIKE ${`%${tag}%`}` as SQL<unknown>
     );
-    
-    // Combine conditions with OR
-    if (tagConditions.length > 0) {
-      conditions.push(sql`(${or(...tagConditions)})` as SQL<unknown>);
-    }
+    conditions.push(sql`(${or(...tagConditions)})` as SQL<unknown>);
   }
 
-  // Get total count
   const countResult = await db
     .select({ value: sql<number>`count(*)` })
     .from(characters)
@@ -56,7 +46,6 @@ async function getPaginatedCharacters(
 
   const totalItems = Number(countResult[0]?.value || 0);
 
-  // Build and execute the main query
   let query = db
     .select({
       id: characters.id,
@@ -73,7 +62,6 @@ async function getPaginatedCharacters(
     .leftJoin(users, eq(characters.userId, users.id))
     .where(and(...conditions));
 
-  // Add sorting
   const sortedQuery = (() => {
     switch (sortOption) {
       case "new":
@@ -86,7 +74,6 @@ async function getPaginatedCharacters(
     }
   })();
 
-  // Add pagination
   const paginatedResults = await sortedQuery
     .limit(ITEMS_PER_PAGE)
     .offset(offset)
@@ -97,6 +84,7 @@ async function getPaginatedCharacters(
     totalItems
   };
 }
+
 interface CharacterCardProps {
   id: string;
   character_id: string;
@@ -112,9 +100,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   character_id,
   character_name,
   character_avatar,
-  last_message_timestamp,
-  updated_at,
-  interaction_count,
 }) => {
   return (
     <Link
@@ -130,7 +115,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 src={character_avatar ?? "/default-avatar.jpg"}
                 alt={character_name ?? ''}
                 className="rounded-xl object-cover w-full h-full"
-                style={{aspectRatio: "1/1"}}
+                style={{ aspectRatio: "1/1" }}
               />
             </div>
           </div>
@@ -160,10 +145,10 @@ const RecentConversation: React.FC<{ characters: CharacterCardProps[] }> = ({ ch
   );
 };
 
-export default async function Page({ 
-  searchParams 
-}: { 
-  searchParams: { 
+export default async function Page({
+  searchParams
+}: {
+  searchParams: {
     tags?: string;
     page?: string;
     sort?: string;
@@ -173,23 +158,9 @@ export default async function Page({
   const currentPage = Number(searchParams.page) || 1;
   const sortOption = searchParams.sort || "popular";
   const tags = searchParams.tags ? searchParams.tags.split(',') : [];
-  
-  // Get current user session
-  const session = await auth();
-  const userId = session?.user?.id;
-  
-  // Check if user has an active subscription
-  let isSubscribed = false;
-  if (userId) {
-    const subscription = await db.query.subscriptions.findFirst({
-      where: and(
-        eq(subscriptions.userId, userId),
-        eq(subscriptions.status, "active"),
-      ),
-    });
-    isSubscribed = !!subscription;
-  }
-  
+
+  await auth(); // Still initializes user if needed
+
   const [
     { characters: paginatedCharacters, totalItems },
     totalPublicCharacters
@@ -206,19 +177,20 @@ export default async function Page({
     totalItems
   };
 
-  const conversations = await getConversations()
-  
+  const conversations = await getConversations();
+
   return (
-    <div className="text-white w-full overflow-y-auto overflow-x-hidden md:pl-16 p-2">      
+    <div className="text-white w-full overflow-y-auto overflow-x-hidden md:pl-16 p-2">
       <Suspense key={searchParams.id}>
-        {!conversations.error && conversations.conversations && conversations.conversations?.length > 0 && <RecentConversation characters={conversations.conversations} />}
-        <AICharacterGrid 
-          initialCharacters={paginatedCharacters} 
+        {!conversations.error && conversations.conversations && conversations.conversations.length > 0 && (
+          <RecentConversation characters={conversations.conversations} />
+        )}
+        <AICharacterGrid
+          initialCharacters={paginatedCharacters}
           paginationInfo={paginationInfo}
           totalPublicCharacters={totalPublicCharacters}
         />
       </Suspense>
-
       <Footer />
     </div>
   );
