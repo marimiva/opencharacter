@@ -89,7 +89,7 @@ const AgeVerificationPopup = ({ user }: AgeVerificationPopupProps) => {
       <AlertDialogContent className="max-w-md z-50 no-blur">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-xl font-bold">
-            Hello, welcome to OpenCharacter!
+            Hello, welcome to Chara
           </AlertDialogTitle>
           <AlertDialogDescription className="text-base">
             This site is only intended for users{' '}
